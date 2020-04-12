@@ -1,0 +1,182 @@
+{
+  "account": {
+    "signup": "注册",
+    "login": "登录",
+    "logout": "退出",
+    "rememberme": "记住我",
+    "forgot": "忘记密码",
+    "username_occupied": "对不起，您选择的用户名已被使用，请试试另外的用户名。",
+    "login_with_google": "Google登录",
+    "login_with_fb": "Facebook登录",
+    "login_to_continue": "页面需要登录才能访问",
+    "reset": "重置/修改密码",
+    "resetpassword": "重置/修改密码",
+    "resetcheck": "您通过{ provider }登录，不需要密码",
+    "resetconfirm": "确认发送密码重置邮件吗？",
+    "resetsent": "密码重置邮件已发送至{email}",
+    "resetnotfound": "用户名或电子邮箱没有注册",
+    "choose_username": "请设置用户名",
+    "notfound": "用户名或电子邮箱没有注册",
+    "manage": "管理",
+    "account": "帐户"
+  },
+  "locales": {
+    "en": "English",
+    "zh_cn": "中文(简体)"
+  },
+  "locale": {
+    "language": "语言"
+  },
+  "nav": {
+    "home": "主页",
+    "group": "组织活动",
+    "newgroup": "新建一个群",
+    "listgroup": "查看所有群组",
+    "newstorytime": "组织故事会活动",
+    "liststorytime": "故事会活动列表"
+  },
+  "field": {
+    "name": "名称",
+    "email": "电子邮箱",
+    "password": "密码",
+    "password_confirm": "确认密码",
+    "username": "用户名",
+    "email_or_username": "电子邮箱或用户名",
+    "group_name": "群ID",
+    "group_owners": "群主",
+    "group_managers": "群管理员",
+    "group_members": "群成员",
+    "owner": "群主",
+    "manager": "管理员",
+    "member": "成员",
+    "description": "简介",
+    "title": "标题",
+    "thumbnail": "缩略图",
+    "country": "国家/地区",
+    "state": "州/省",
+    "city": "城市",
+    "zipcode": "邮编",
+    "address_street_line1": "地址1",
+    "address_street_line2": "地址2",
+    "phone_country": "国际区号",
+    "phone_area": "区号",
+    "phone_number": "电话号码",
+    "capacity": "可容纳人数",
+    "url": "链接",
+    "phone": "电话号码",
+    "hangout": "Hangout",
+    "zoom": "Zoom",
+    "skype": "Skype",
+    "youtube": "Youtube",
+    "time": "时间",
+    "duration": "时长(分钟)",
+    "agerange": "年龄组",
+    "theme": "主题",
+    "location": "地点",
+    "note": "备注"
+  },
+  "ph": {
+    "email": "请输入电子邮箱",
+    "email_or_username": "请输入电子邮箱或用户名",
+    "a_email_or_username": "请输入一个已注册的电子邮箱或用户名",
+    "password": "请输入密码",
+    "username": "请输入一个用户名",
+    "groupname": "请输入一个群ID",
+    "group_description": "请输入群的简介",
+    "group_title": "请输入群的名称，比如Westwood中文故事会",
+    "url": "http|https://",
+    "select_time": "请选择时间"
+  },
+  "vee": {
+    "password": "密码须包含字母，数字以及一个特殊字符(!@#$%^&*)",
+    "username": "用户名只能包含小写字母和数字",
+    "email_or_username": "电子邮箱或用户名输入不正确",
+    "groupname": "群ID只能包含小写字母,数字或横杠",
+    "url": "链接格式不正确"
+  },
+  "button": {
+    "submit": "提交",
+    "add": "添加",
+    "delete": "删除",
+    "view": "查看",
+    "save": "保存",
+    "areyousure": "你确定吗?"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "电子邮箱已被注册",
+    "auth/wrong-password": "密码不正确",
+    "auth/user-not-found": "用户未找到",
+    "auth/other-error": "登录错误",
+    "rsvp/percat_remaining": "报名错误：某些种类剩余名额不足",
+    "rsvp/total_remaining": "报名错误：剩余总票数不足",
+    "rsvp/required_cat": "报名错误：缺少必选种类的报名"
+  },
+  "group": {
+    "create": "创建一个群",
+    "occupied": "对不起，您选择的ID已被使用，请再试试另外的ID",
+    "manage": "管理群组 {id}",
+    "view": "查看群组 {id}",
+    "all": "所有群组",
+    "events": "群组{id}的所有活动"
+  },
+  "profile": {
+    "events": "我的群组和我组织的活动",
+    "groups": "我创建或管理的群组",
+    "records": "我报名的活动"
+  },
+  "event": {
+    "venues": "场地",
+    "online_venues": "线上场地",
+    "limit_total": "限制总报名人数",
+    "categorize": "分类报名",
+    "limit_per_cat": "每类报名人数分别设限",
+    "require_login": "要求登录才能报名",
+    "addcat": "添加分类",
+    "subcat": "删除分类",
+    "catname": "分类名称",
+    "catlimit": "分类人数限制",
+    "total_limit": "总人数限制",
+    "options": "活动选项",
+    "rsvp_open": "开始报名时间",
+    "rsvp_close": "结束报名时间",
+    "rsvp": "报名",
+    "agenda": "活动事项",
+    "all": "所有活动",
+    "organizer": "组织者",
+    "choose": "有多少人参加活动",
+    "count": "数量"
+  },
+  "rsvp": {
+    "success": "报名成功！",
+    "unnecessary": "本次活动无须报名",
+    "not_opened": "报名开始时间: {time}",
+    "closed": "报名已结束：{time}",
+    "filled": "报名名额已用完",
+    "login_required": "需要登录才能报名",
+    "already_done": "您已经报名，请点击'帐户'页面进行管理"
+  },
+  "venue": {
+    "prefill": "填入预存的场地信息",
+    "add": "输入新场地信息",
+    "save": "预存场地信息以便重复使用",
+    "prefilled": "预留场地",
+    "prefilled_online": "预留视频会议信息",
+    "online_type": "视频会议软件"
+  },
+  "storytime": {
+    "emptygroup": "您不是某个故事会的群主或管理员，请创建一个故事会:",
+    "create": "创建一次故事会",
+    "step0_confirm": "退回第一步选择故事会群将丢失现有的输入，确定吗?",
+    "step1_confirm": "你还没有选择故事会群，创建的活动不会发布在群列表",
+    "step1": "故事会群",
+    "step2": "场地",
+    "step3": "时间",
+    "step4": "活动信息",
+    "step5": "选填部分"
+  },
+  "zoom": {
+    "id": "会议ID",
+    "id_regex": "会议 ID 至少为9位数字，不含短横杠",
+    "password_ph": "会议密码，现在为必须设置"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "account": {
+    "signup": "Sign up",
+    "login": "Log in",
+    "logout": "Log out",
+    "rememberme": "Remember me",
+    "forgot": "Forgot password?",
+    "username_occupied": "Sorry, the username has been taken, please choose another username.",
+    "login_with_google": "Log in with Google",
+    "login_with_fb": "Log in with Facebook",
+    "login_to_continue": "Please log in to continue",
+    "reset": "Send email to reset / change password",
+    "resetpassword": "Reset / Change Password",
+    "resetcheck": "You registered with us through { provider }, so there's no password needed to login.",
+    "resetconfirm": "Send password reset email now?",
+    "resetsent": "Password reset email sent to {email}",
+    "resetnotfound": "Username or email not found.",
+    "choose_username": "Please set a username",
+    "notfound": "Username or email not found.",
+    "manage": "Manage",
+    "account": "Account"
+  },
+  "locales": {
+    "en": "English",
+    "zh_cn": "中文(简体)"
+  },
+  "locale": {
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "group": "Organize",
+    "newgroup": "Create a new group",
+    "listgroup": "View all groups",
+    "newstorytime": "Create a storytime event",
+    "liststorytime": "Upcoming storytime events"
+  },
+  "field": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "username": "Username",
+    "email_or_username": "Email or username",
+    "group_name": "Group ID",
+    "group_owners": "Group Owners",
+    "group_managers": "Group Managers",
+    "group_members": "Group Members",
+    "owner": "Owner",
+    "manager": "Manager",
+    "member": "Member",
+    "description": "Description",
+    "title": "Title",
+    "thumbnail": "Thumbnail",
+    "country": "Country / Region",
+    "state": "State / Province",
+    "city": "City",
+    "zipcode": "Zip Code",
+    "address_street_line1": "Street Line 1",
+    "address_street_line2": "Street Line 2",
+    "phone_country": "International Code",
+    "phone_area": "Area Code",
+    "phone_number": "Phone Number",
+    "capacity": "Capacity",
+    "url": "Url",
+    "phone": "Phone",
+    "hangout": "Hangout",
+    "zoom": "Zoom",
+    "skype": "Skype",
+    "youtube": "Youtube",
+    "time": "Time",
+    "duration": "Duration (minutes)",
+    "agerange": "Age Range",
+    "theme": "Theme",
+    "location": "Location",
+    "note": "Note"
+  },
+  "ph": {
+    "email": "Please enter your email",
+    "email_or_username": "Please enter your email or username",
+    "a_email_or_username": "Please enter a registered email or username",
+    "password": "Please enter your password",
+    "username": "Please choose a unique username",
+    "groupname": "Please choose a unique group ID",
+    "group_title": "Please enter a title for the group",
+    "group_description": "Please describe your group briefly, e.g. Chinese story time at Westwood, MA",
+    "url": "http|https://",
+    "select_time": "Please select a time"
+  },
+  "vee": {
+    "password": "The password must contain at least: 1 letter, 1 number and one special character (!@#$%^&*)",
+    "username": "The username must be contain only lowercase letters or numbers",
+    "email_or_username": "Invalid email or username",
+    "groupname": "The groupname must contain only lowercase letters, numbers or hyphen",
+    "url": "Invalid url"
+  },
+  "button": {
+    "submit": "Submit",
+    "add": "Add",
+    "delete": "Delete",
+    "view": "View",
+    "save": "Save",
+    "areyousure": "Are you sure?"
+  },
+  "firebase": {
+    "auth/email-already-in-use": "The email address is already in use by another account.",
+    "auth/wrong-password": "The password is invalid or the user does not have a password.",
+    "auth/user-not-found": "Email address not found.",
+    "auth/other-error": "Authentication error.",
+    "rsvp/percat_remaining": "Your rsvp failed because certain categories didn't have enought tickets left.",
+    "rsvp/total_remaining": "Your rsvp failed because total limit is reached.",
+    "rsvp/required_cat": "Your rsvp failed because you didn't select required categories."
+  },
+  "group": {
+    "create": "Create a new group",
+    "occupied": "Sorry, the group name has been taken, please choose another group name.",
+    "manage": "Manage Group {id}",
+    "view": "View Group {id}",
+    "all": "All Groups",
+    "events": "All Events for {id}"
+  },
+  "profile": {
+    "events": "Events my groups or I organized",
+    "groups": "Groups I created or manage",
+    "records": "Events I RSVP'ed"
+  },
+  "event": {
+    "venues": "Venues",
+    "online_venues": "Online Venues",
+    "limit_total": "Limit Total Rsvps",
+    "categorize": "Categorize Rsvps",
+    "limit_per_cat": "Limit Rsvps Per Category",
+    "require_login": "Require Login to RSVP",
+    "addcat": "Add Category",
+    "subcat": "Remove Category",
+    "catname": "Category Name",
+    "catlimit": "Category Limit",
+    "total_limit": "Total Limit",
+    "options": "Event Settings",
+    "rsvp_open": "Rsvp Open Time",
+    "rsvp_close": "Rsvp Close Time",
+    "rsvp": "RSVP",
+    "agenda": "Agenda",
+    "all": "All Events",
+    "organizer": "Organizer",
+    "choose": "Choose how many?",
+    "count": "How many"
+  },
+  "rsvp": {
+    "success": "You've successfully registered!",
+    "unnecessary": "This event doens't require RSVP.",
+    "not_opened": "The RSVP for this event opens at {time}",
+    "closed": "The RSVP for this event closed at {time}",
+    "filled": "The RSVP for this event has been filled",
+    "login_required": "This event requires login to RSVP",
+    "already_done": "You already RSVP'ed, please go to your account page to make changes."
+  },
+  "venue": {
+    "prefill": "Reuse saved venue",
+    "add": "Add venue",
+    "save": "Save venue info for future use",
+    "prefilled": "Saved venues",
+    "prefilled_online": "Saved online sessions",
+    "online_type": "Online meeting software"
+  },
+  "storytime": {
+    "emptygroup": "You are not an owner or manager of any group, please create one:",
+    "create": "Create a storytime event",
+    "step0_confirm": "You'll lose your progress if you go back to select group again, Proceed?",
+    "step1_confirm": "You haven't chosen a group for the event. Your event won't be listed on home page.",
+    "step1": "Group",
+    "step2": "Where",
+    "step3": "When",
+    "step4": "Agenda",
+    "step5": "Optional Input"
+  },
+  "zoom": {
+    "id": "Meeting ID",
+    "id_regex": "Zoom Meeting ID is at least 9 digits, ignoring hyphen.",
+    "password_ph": "Password, required now"
+  }
+}
