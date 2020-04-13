@@ -10,8 +10,8 @@
     "ssr": "firebase serve",
     "preparedev": "cp -f firebase_dev_key.json functions/ && cp -f .env.development .env && cp -f functions/.runtimeconfig_dev.json functions/.runtimeconfig.json",
     "prepareprod": "cp -f firebase_prod_key.json functions/ && cp -f .env.production .env && cp -f functions/.runtimeconfig_prod.json functions/.runtimeconfig.json",
-    "stage": "cp firebase_dev.json firebase.json && firebase deploy",
-    "deploy": "cp firebase_prod.json firebase.json && firebase deploy",
+    "stage": "cp firebase_dev.json firebase.json && firebase use staging && firebase deploy",
+    "deploy": "cp firebase_prod.json firebase.json && firebase use prod && firebase deploy",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "clean": "rm -rf public/ node_modules/ functions/node_modules .nuxt functions/.nuxt"
   },

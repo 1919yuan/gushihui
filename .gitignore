@@ -100,3 +100,4 @@ pages/test.vue
 .firebaserc
 firestore.rules
 .firebase/*
+firebase.json
