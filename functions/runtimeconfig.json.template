@@ -1,0 +1,14 @@
+{
+  "envs": {
+    "firebase_api_key": "apikey",
+    "firebase_auth_domain": "your_project.firebaseapp.com",
+    "firebase_database_url": "https://your_project.firebaseio.com",
+    "firebase_project_id": "your_project",
+    "firebase_storage_bucket": "your_project.appspot.com",
+    "firebase_messaging_sender_id": "your_sender_id",
+    "firebase_app_id": "your_app_id",
+    "firebase_measurement_id": "",
+    "google_application_credentials": "your_firebase_key.json",
+    "base_url": "your_website"
+  }
+}

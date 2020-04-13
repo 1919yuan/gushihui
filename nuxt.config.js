@@ -1,8 +1,20 @@
-import "./config";
+import path from "path";
 import webpack from "webpack";
+import admin from "firebase-admin";
+
+require("dotenv").config({
+  path: path.resolve(process.cwd(), ".env")
+});
+if (admin.apps.length === 0) {
+  admin.initializeApp({
+    credential: admin.credential.applicationDefault(),
+    databaseURL: process.env.FIREBASE_DATABASE_URL
+  });
+}
 
 export default {
   mode: "universal",
+  srcDir: "src",
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || ""
   },
@@ -29,20 +41,20 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/styles/global.sass"],
+  css: ["@styles/global.sass"],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    "~/plugins/api.js",
-    "~/plugins/i18n.js",
-    "~/plugins/fragment.js",
-    "~/plugins/schema.js",
-    "~/plugins/vee-validate.js",
-    "~/plugins/util.js",
-    "~/plugins/axios.js",
-    { src: "~/plugins/auth-listener.js", mode: "client" },
-    { src: "~/plugins/editor.js", mode: "client" }
+    "@plugins/api.js",
+    "@plugins/i18n.js",
+    "@plugins/fragment.js",
+    "@plugins/schema.js",
+    "@plugins/vee-validate.js",
+    "@plugins/util.js",
+    "@plugins/axios.js",
+    { src: "@plugins/auth-listener.js", mode: "client" },
+    { src: "@plugins/editor.js", mode: "client" }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -56,14 +68,13 @@ export default {
    */
   modules: [
     // Doc: https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
-    "cookie-universal-nuxt",
+    ["cookie-universal-nuxt", { parseJSON: false }],
     // Doc: https://buefy.github.io/#/documentation
     "nuxt-buefy",
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     // Doc: https://firebase.nuxtjs.org/guide
-    "@nuxtjs/firebase",
-    "~/modules/firebase-admin"
+    "@nuxtjs/firebase"
   ],
   /*
    ** Axios module configuration
@@ -98,10 +109,9 @@ export default {
   /*
    ** Build configuration
    */
+  // buildDir: "../functions/nuxt",
   build: {
-    /*
-     ** You can extend webpack config here
-     */
+    extractCSS: true,
     transpile: [
       "/^nuxt-fire/",
       "vee-validate/dist/rules"

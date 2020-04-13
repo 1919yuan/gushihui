@@ -73,6 +73,7 @@ typings/
 
 # Nuxt generate
 dist
+public
 
 # vuepress build output
 .vuepress/dist
@@ -94,3 +95,8 @@ sw.*
 
 # test vue page
 pages/test.vue
+
+# firebase dot files.
+.firebaserc
+firestore.rules
+.firebase/*

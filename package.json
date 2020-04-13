@@ -5,19 +5,20 @@
   "author": "Lin Yuan",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development nuxt --port 8080",
-    "build": "NODE_ENV=production nuxt build",
-    "start": "NODE_ENV=production nuxt start",
-    "genprod": "NODE_ENV=production nuxt generate",
-    "gendev": "NODE_ENV=development nuxt generate",
-    "fdeploy": "firebase deploy --only hosting",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "dev": "nuxt --port 8080",
+    "build": "nuxt build && rm -rf functions/.nuxt && mv .nuxt functions",
+    "ssr": "firebase serve",
+    "preparedev": "cp -f firebase_dev_key.json functions/ && cp -f .env.development .env && cp -f functions/.runtimeconfig_dev.json functions/.runtimeconfig.json",
+    "prepareprod": "cp -f firebase_prod_key.json functions/ && cp -f .env.production .env && cp -f functions/.runtimeconfig_prod.json functions/.runtimeconfig.json",
+    "stage": "cp firebase_dev.json firebase.json && firebase deploy",
+    "deploy": "cp firebase_prod.json firebase.json && firebase deploy",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "clean": "rm -rf public/ node_modules/ functions/node_modules .nuxt functions/.nuxt"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/firebase": "^5.0.3",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
     "cookie": "^0.4.0",
     "cookie-universal-nuxt": "^2.1.3",
     "core-js": "^2.6.10",

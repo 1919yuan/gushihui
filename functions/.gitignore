@@ -1,1 +1,7 @@
 node_modules/
+.runtimeconfig*.json
+modules/
+.env*
+*config.js
+*key.json
+nuxt/

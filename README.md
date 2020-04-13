@@ -6,27 +6,22 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ yarn global add nuxt @nuxtjs/eslint-module
 
-# serve with hot reload at localhost:3000
+# Prepare dev build
+$ yarn preparedev
+
+# Prepare prod build
+$ yarn prepareprod
+
+# serve with hot reload at localhost:8080
 $ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+# serve SSR with hot reload at localhost:5000(client) and localhost:5001(server)
+$ yarn ssr
 
-# generate static project
-$ yarn generate
+# Stage: dev build -> dev instance.
+$ yarn stage
 
-# Staging to Firebase Development Site
-$ gcloud config set project "${YOUR_DEV_FIREBASE_PROJECT_ID}"
-$ yarn gendev
-$ yarn fdeploy
-
-# Deploy to Firebase Production Site
-$ gcloud config set project "${YOUR_PROD_FIREBASE_PROJECT_ID}"
-$ yarn genprod
-$ yarn fdeploy
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+# Deploy: prod build -> prod instance.
+$ yarn deploy
