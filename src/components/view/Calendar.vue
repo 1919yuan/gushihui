@@ -43,6 +43,8 @@ export default {
     locationString () {
       if (this.location) {
         return "@ " + this.location;
+      } else if (this.url) {
+        return "online";
       } else {
         return "";
       }

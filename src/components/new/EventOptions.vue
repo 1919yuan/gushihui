@@ -38,7 +38,7 @@
       <b-field :label="$t('field.duration')">
         <b-numberinput v-model="duration" step="30" @input="emit" />
       </b-field>
-      <b-field grouped grouped-multiline>
+      <b-field grouped group-multiline>
         <p class="control">
           <b-switch v-model="storytime.Options.IsTotalCountLimited" @input="emit">
             {{ $t('event.limit_total') }}

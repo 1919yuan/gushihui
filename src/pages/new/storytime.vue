@@ -54,7 +54,7 @@ export default {
       return (this.newobj.step >= 3);
     }
   },
-  mounted () {
+  created () {
     const s = _.cloneDeep(this.$schema.kNullStorytimeEvent);
     const startAt = this.$util.daysOut(new Date(), 7);
     startAt.setHours(10);
@@ -85,6 +85,7 @@ export default {
         message: "Event successfully created!",
         type: "is-success"
       });
+      this.$router.push({ path: "/u/" });
     }
   }
 };

@@ -180,6 +180,19 @@ class Util {
     }
     return null;
   }
+
+  getOnlineVenueUrl (v) {
+    if (v.Type === "Zoom") {
+      return v.Zoom.JoinUrl;
+    } else if (v.Type === "Hangout") {
+      return v.Hangout.JoinUrl;
+    } else if (v.Type === "Skype") {
+      return v.Skype.JoinUrl;
+    } else if (v.Type === "Youtube") {
+      return v.Youtube.JoinUrl;
+    }
+    return "";
+  }
 }
 
 export const util = new Util();

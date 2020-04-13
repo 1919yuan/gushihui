@@ -3,7 +3,7 @@
     <div class="container">
       <h3> {{ $t('event.agenda') }} </h3>
       <b-field :label="$t('field.title')">
-        <b-input v-model="storytime.Name" @input="emit" />
+        <b-input v-model="title" @input="emit" />
       </b-field>
       <div class="mavonEditor">
         <client-only>
@@ -30,6 +30,7 @@ export default {
   },
   data () {
     return {
+      title: this.value.Name,
       storytime: _.cloneDeep(this.value)
     };
   },

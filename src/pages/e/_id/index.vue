@@ -33,7 +33,7 @@
           <Calendar
             :time="event.Options.StartAt"
             :location="event.Venues.length > 0 && event.Venues[0].Address.FormattedAddress || ''"
-            :url="event.OnlineVenues.length > 0 && event.OnlineVenues[0].JoinUrl || ''"
+            :url="event.OnlineVenues.length > 0 && $util.getOnlineVenueUrl(event.OnlineVenues[0]) || ''"
             :name="event.Name"
             :agenda="event.Agenda"
           />
@@ -48,10 +48,10 @@
               $util.formatLocalTime(event.Options.RsvpClose) }}
           </p>
         </div>
-        <Venue v-for="(v, idx) in event.Venues" :key="idx" :venue="v" />
+        <Venue v-for="(v, idx) in event.Venues" :key="'v'+idx" :venue="v" />
         <OnlineVenue
           v-for="(v, idx) in event.OnlineVenues"
-          :key="idx"
+          :key="'o'+idx"
           :venue="v"
         />
         <h2>{{ $t('event.agenda') }}</h2>
@@ -105,13 +105,15 @@ import { mapGetters, mapState } from "vuex";
 import { kNullEvent, kNullRecord } from "~/schema";
 import Calendar from "~/components/view/Calendar.vue";
 import Venue from "~/components/view/Venue.vue";
+import OnlineVenue from "~/components/view/OnlineVenue.vue";
 const md = require("markdown-it")();
 
 export default {
   layout: "article",
   components: {
     Calendar,
-    Venue
+    Venue,
+    OnlineVenue
   },
   async asyncData ({ app, params, store }) {
     const event = kNullEvent;
