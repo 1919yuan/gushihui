@@ -178,5 +178,9 @@
     "id": "Meeting ID",
     "id_regex": "Zoom Meeting ID is at least 9 digits, ignoring hyphen.",
     "password_ph": "Password, required now"
+  },
+  "landing": {
+    "title": "Welcome to Chinese Story Time!",
+    "subtitle": "Read Stories, Learn Chinese"
   }
 }

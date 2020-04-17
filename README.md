@@ -6,7 +6,10 @@
 
 ```bash
 # install dependencies
-$ yarn global add nuxt @nuxtjs/eslint-module
+# Go to https://nvm.sh to install nvm
+$ nvm install 10
+$ nvm use 10
+$ yarn global add nuxt @nuxtjs/eslint-module firebase-tools eslint
 
 # Prepare dev build
 $ yarn preparedev

@@ -178,5 +178,9 @@
     "id": "会议ID",
     "id_regex": "会议 ID 至少为9位数字，不含短横杠",
     "password_ph": "会议密码，现在为必须设置"
+  },
+  "landing": {
+    "title": "中文故事会",
+    "subtitle": "听故事，学中文"
   }
 }

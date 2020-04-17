@@ -1,17 +1,35 @@
 <template>
-  <section class="section">
-    <div class="content">
-      <p>
-        Hello, this is the new website for International Chinese Reading
-        Association. You can test out functionalities
-        like creating a new storytime event and rsvp'ing to it. More
-        functionalities like article publishing, starbook library system are under
-        development.
-      </p>
-      <p>
-        你好，欢迎来到华阅会的新网站，你可以试试创建一个故事会并使用其报名功能。
-        更多的功能比如图书馆和文章发布系统正在开发中，敬请期待！
-      </p>
-    </div>
-  </section>
+  <div>
+    <section class="hero is-fullheight section1">
+      <div class="hero-head">
+        <Navbar transparent />
+        <div class="container has-text-centered" style="top: 65px;">
+          <h1 class="title is-2 is-spaced has-text-white">
+            {{ $t('landing.title') }}
+          </h1>
+          <h2 class="subtitle is-4 has-text-light">
+            {{ $t('landing.subtitle') }}
+          </h2>
+        </div>
+      </div>
+    </section>
+    <Footer />
+  </div>
 </template>
+
+<script>
+import Navbar from "~/components/Navbar";
+import Footer from "~/components/Footer";
+export default {
+  layout: "landing",
+  components: {
+    Navbar,
+    Footer
+  }
+};
+</script>
+
+<style scoped lang="sass">
+.section1
+  background: url('~assets/banner.jpg') center / cover
+</style>

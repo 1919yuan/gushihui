@@ -1,10 +1,8 @@
 <template>
-  <b-navbar
-    class="navbar header has-shadow is-primary"
-  >
+  <b-navbar :class="background">
     <template slot="brand">
       <b-navbar-item tag="nuxt-link" to="/">
-        <img src="~/assets/buefy.png" alt="Buefy" height="28">
+        <img src="~/assets/gushihui.png" alt="Gushihui" height="28">
       </b-navbar-item>
     </template>
     <template slot="start">
@@ -51,6 +49,21 @@ export default {
   components: {
     AuthButtons,
     LocaleButton
+  },
+  props: {
+    transparent: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    background () {
+      if (this.transparent) {
+        return "navbar header is-transparent";
+      } else {
+        return "navbar header has-shadow is-primary";
+      }
+    }
   }
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <Navbar />
-    <section class="main-content columns">
-      <div class="container column is-12 centered">
+    <section class="columns">
+      <div class="container column is-12">
         <section class="hero is-fullheight">
           <div class="hero-body">
             <nuxt />
