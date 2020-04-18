@@ -6,7 +6,6 @@
           {{ event.Name }}
         </p>
         <p class="subtitle">
-          {{ $t('event.organizer') }}
           <a
             v-for="(o, idx) in organizers"
             :key="idx"

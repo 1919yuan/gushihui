@@ -192,5 +192,11 @@
     "introduction_register": "People can RSVP to the events, and there are flexible options for limiting the number of registrations.",
     "introduction_manage": "As an organizer, you can manage people's RSVPs easily, or export the list of RSVPs to a spreadsheet.",
     "contact": "Contact Us"
+  },
+  "footer": {
+    "feedback": "Feedback",
+    "code": "Code",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Notice"
   }
 }

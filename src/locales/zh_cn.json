@@ -192,5 +192,11 @@
     "introduction_register": "人们可以在网上提交活动注册信息，并且灵活管理他们的注册",
     "introduction_manage": "作为组织者，您可以看到参与活动的人员列表，并把他们导出",
     "contact": "联系我们"
+  },
+  "footer": {
+    "feedback": "网站反馈",
+    "code": "网站代码",
+    "terms": "服务条款",
+    "privacy": "隐私声明"
   }
 }

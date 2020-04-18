@@ -6,7 +6,7 @@
 export default {
   middleware: "auth",
   created () {
-    this.$router.push({ path: "/u/" + this.$store.state.account.authUser.Id });
+    this.$router.push({ path: "/u/" + this.$store.state.account.authUser.Username });
   }
 };
 </script>

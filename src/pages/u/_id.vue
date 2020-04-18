@@ -24,11 +24,12 @@
 <script>
 export default {
   async asyncData ({ app, params, store }) {
-    const userId = params.id;
+    const userName = params.id;
+    const user = await app.$api.getUserWithUsername(userName);
+    const userId = user.Id;
     if (!userId) {
       return { events: [], groups: [], records: [] };
     }
-    const user = await app.$api.getUser(userId);
     const events = [];
     const today = new Date();
     const beginDate = app.$util.daysOut(today, -30);
