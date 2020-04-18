@@ -14,10 +14,18 @@
       </div>
     </section>
     <section class="hero section2">
-      <div class="container has-text-centered">
-        <h2 class="title is-3">
-          About
-        </h2>
+      <div class="columns is-multiline">
+        <div class="column is-12 has-text-centered">
+          <h2 class="title is-3">
+            {{ $t('landing.about') }}
+          </h2>
+        </div>
+        <div class="column is-6 has-text-right">
+          <p>asfasdfasdfasfa</p>
+        </div>
+        <div class="column is-6 has-text-left">
+          <figure><img src="~assets/icra.jpg"></figure>
+        </div>
       </div>
     </section>
     <section class="hero section3">
@@ -46,7 +54,7 @@ export default {
 <style scoped lang="sass">
 @import "~bulma/sass/utilities/_all";
 .section1
-  background: url('~assets/banner.jpg') center / cover
+  backgrounpd: url('~assets/banner.jpg') center / cover
 .section2
   background: $light
   padding: 5rem
