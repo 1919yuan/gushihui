@@ -75,35 +75,78 @@
       </h2>
       <div class="columns is-multiline is-light">
         <div class="column is-8 is-offset-2 is-light">
-          <form
-            action="https://formspree.io/xrgawpol"
-            method="POST"
-          >
-            <div class="field">
-              <label> {{ $t('field.name') }} </label>
-              <b-input icon="account" name="name" :placeholder="$t('ph.name')" />
-            </div>
-            <div class="field">
-              <label> {{ $t('field.email') }} </label>
-              <b-input
-                icon="email"
-                type="email"
-                :placeholder="$t('ph.email')"
-                name="_replyto"
-              />
-            </div>
-            <div class="field">
-              <label> {{ $t('field.message') }} </label>
-              <b-input
-                type="textarea"
-                :placeholder="$t('ph.message')"
-                name="message"
-              />
-            </div>
-            <b-button type="submit" class="is-block is-fullwidth" outlined>
-              {{ $t('button.submit') }}
-            </b-button>
-          </form>
+          <ValidationObserver v-slot="{ handleSubmit }">
+            <form
+              action="https://formspree.io/xrgawpol"
+              method="POST"
+              @submit="handleSubmit(onContactFormSubmit)"
+            >
+              <ValidationProvider
+                v-slot="{ errors, valid }"
+                tag="div"
+                class="field"
+                :name="$t('field.name')"
+                rules="required|max:80"
+              >
+                <b-field
+                  :message="errors[0]"
+                  :type="{ 'is-danger': !valid && name }"
+                >
+                  <b-input
+                    v-model="name"
+                    icon="account"
+                    :placeholder="$t('ph.name')"
+                    name="name"
+                  />
+                </b-field>
+              </ValidationProvider>
+              <ValidationProvider
+                v-slot="{ errors, valid }"
+                tag="div"
+                class="field"
+                :name="$t('field.email')"
+                rules="required|email"
+              >
+                <b-field
+                  :message="errors[0]"
+                  :type="{ 'is-danger': !valid && email}"
+                >
+                  <b-input
+                    v-model="email"
+                    icon="email"
+                    type="email"
+                    :placeholder="$t('ph.email')"
+                    name="_replyto"
+                  />
+                </b-field>
+              </ValidationProvider>
+              <ValidationProvider
+                v-slot="{ errors, valid }"
+                tag="div"
+                class="field"
+                :name="$t('field.message')"
+                rules="required|max:1000"
+              >
+                <b-field
+                  :message="errors[0]"
+                  :type="{ 'is-danger': !valid && message }"
+                >
+                  <b-input
+                    v-model="message"
+                    type="textarea"
+                    :placeholder="$t('ph.message')"
+                    name="message"
+                  />
+                </b-field>
+              </ValidationProvider>
+              <input
+                class="is-block is-fullwidth button"
+                outlined
+                type="submit"
+                :value="$t('button.submit')"
+              >
+            </form>
+          </ValidationObserver>
         </div>
       </div>
     </section>
@@ -119,6 +162,15 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  data: () => ({ name: "", email: "", message: "" }),
+  methods: {
+    onContactFormSubmit () {
+      this.$buefy.toast.open({
+        message: "Thanks for your message! We'll reply soon!",
+        type: "is-success"
+      });
+    }
   }
 };
 </script>

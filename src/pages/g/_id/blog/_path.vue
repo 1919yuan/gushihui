@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <div class="content" v-html="blog.Content" />
+    <div v-show="isOwner" class="block">
+      <b-button
+        tag="nuxt-link"
+        :to="{ path: '/g/' + groupId + '/edit/blog/' + blog.Path }"
+        type="is-primary"
+        class="is-block is-fullwidth"
+      >
+        {{
+          $t('button.edit') }}
+      </b-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import { kNullBlog } from "~/schema";
+export default {
+  layout: "article",
+  async asyncData ({ app, params }) {
+    const blogs = await app.$api.searchBlog(params.id, "", params.path, new Date(0), new Date(0));
+    if (blogs.length > 0) {
+      return { blog: blogs[0] };
+    } else {
+      return { blog: kNullBlog };
+    }
+  },
+  computed: {
+    groupId () {
+      return this.$route.params.id;
+    },
+    isOwner () {
+      if (!this.$store.getters["account/isLoggedIn"]) {
+        return false;
+      }
+      const ownerGroups = this.$store.state.account.authUser.OwnerGroups;
+      const managerGroups = this.$store.state.account.authUser.ManagerGroups;
+      return (ownerGroups && ownerGroups.includes(this.$route.params.id)) || (managerGroups && managerGroups.includes(this.$route.params.id));
+    }
+  }
+};
+</script>

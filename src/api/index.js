@@ -17,4 +17,5 @@ require("./event")(Api);
 require("./record")(Api);
 require("./storytime")(Api);
 require("./venue")(Api);
+require("./blog")(Api);
 module.exports = Api;

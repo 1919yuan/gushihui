@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <section class="main-content columns">
+    <section class="columns">
       <div class="container column is-12 centered">
         <section class="section">
           <nuxt />

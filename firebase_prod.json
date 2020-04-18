@@ -1,6 +1,5 @@
 {
   "firestore": {
-    "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "functions": {
@@ -11,7 +10,7 @@
   },
   "hosting": {
     "predeploy": [
-      "cp functions/nuxt/* public/nuxt/ && cp -a src/static/. public/"
+      "rm -rf public && mkdir public && cp -r functions/.nuxt/dist/client public/_nuxt && cp -a src/static/. public/"
     ],
     "public": "public/",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],

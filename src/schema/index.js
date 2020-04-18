@@ -5,6 +5,7 @@ import { kNullRecord } from "./record";
 import { kNullUser } from "./user";
 import { kNullStorytimeEvent, kNullStorytimeRecord } from "./storytime";
 import { kAgeRangeTypes, kAgeRangeTypeValues } from "./age";
+import { kNullBlog } from "./blog";
 
 export * from "./user";
 export * from "./group";
@@ -19,8 +20,10 @@ export * from "./storytime";
 export * from "./age";
 export * from "./phone";
 export * from "./address";
+export * from "./blog";
 
 export default {
+  kNullBlog,
   kNullEvent,
   kNullOptions,
   kNullStats,

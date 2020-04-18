@@ -103,7 +103,10 @@
     "delete": "Delete",
     "view": "View",
     "save": "Save",
-    "areyousure": "Are you sure?"
+    "areyousure": "Are you sure?",
+    "publish": "Publish",
+    "update": "Update",
+    "edit": "Edit"
   },
   "firebase": {
     "auth/email-already-in-use": "The email address is already in use by another account.",
@@ -120,7 +123,8 @@
     "manage": "Manage Group {id}",
     "view": "View Group {id}",
     "all": "All Groups",
-    "events": "All Events for {id}"
+    "events": "All Events for {id}",
+    "blogs": "All Articles for {id}"
   },
   "profile": {
     "events": "Events my groups or I organized",
@@ -199,5 +203,13 @@
     "code": "Code",
     "terms": "Terms of Service",
     "privacy": "Privacy Notice"
+  },
+  "blog": {
+    "path": "Static path (optional)",
+    "author": "Author",
+    "content": "Content",
+    "new": "Create a new blog",
+    "edit": "Edit blog",
+    "searchable": "List on group page"
   }
 }

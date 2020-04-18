@@ -16,7 +16,8 @@ export default {
   mode: "universal",
   srcDir: "src",
   env: {
-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || ""
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || "",
+    CONTACT_FORM_URL: process.env.CONTACT_FORM_URL || ""
   },
   /*
    ** Headers of the page
