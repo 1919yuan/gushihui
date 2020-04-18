@@ -28,7 +28,7 @@
         </ValidationObserver>
       </div>
       <div class="block">
-        <b-button class="is-block is-info is-fullwidth" @click="doResetPassword">
+        <b-button class="is-block is-primary is-fullwidth" @click="doResetPassword">
           {{ $t('account.reset') }}
         </b-button>
       </div>

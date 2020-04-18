@@ -94,7 +94,7 @@
         <b-checkbox v-model="rememberme">
           {{ $t('account.rememberme') }}
         </b-checkbox>
-        <b-button class="is-block is-info is-fullwidth" @click="doSignup">
+        <b-button class="is-block is-primary is-fullwidth" @click="doSignup">
           {{ $t('account.signup') }}
         </b-button>
       </div>

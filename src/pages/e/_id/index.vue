@@ -87,6 +87,9 @@
               </option>
             </b-select>
           </b-field>
+          <b-field :label="$t('field.name')">
+            <b-input v-model="record.Name" />
+          </b-field>
           <b-field :label="$t('field.note')">
             <b-input v-model="record.Comment" type="textarea" />
           </b-field>
@@ -94,6 +97,69 @@
             {{ $t('button.submit') }}
           </b-button>
         </div>
+      </div>
+    </section>
+    <section v-if="allRecords.length > 0" class="section">
+      <div class="content">
+        <h2> {{ $t('event.manage') }} </h2>
+        <b-table
+          :data="rsvpData"
+          :striped="true"
+          :hoverable="true"
+          :mobile-cards="true"
+        >
+          <template slot-scope="props">
+            <b-table-column
+              field="index"
+              label="ID"
+              numeric
+            >
+              {{ props.row.index }}
+            </b-table-column>
+            <b-table-column
+              field="name"
+              label="Name"
+            >
+              <nuxt-link
+                v-show="props.row.username"
+                :to="{ path: '/u/' + props.row.username }"
+              >
+                {{ props.row.name
+                }}
+              </nuxt-link>
+              <div v-show="!props.row.username">
+                {{ props.row.name }}
+              </div>
+            </b-table-column>
+            <b-table-column
+              field="count"
+              label="Count"
+            >
+              {{ props.row.count }}
+            </b-table-column>
+            <b-table-column
+              field="note"
+              label="Note"
+            >
+              {{ props.row.note }}
+            </b-table-column>
+            <b-table-column
+              label="Delete"
+            >
+              <b-button
+                type="is-danger"
+                @click="doDeleteRsvp(props.row.index)"
+              >
+                <b-icon icon="delete" />
+              </b-button>
+            </b-table-column>
+          </template>
+          <template slot="empty">
+            <p class="content">
+              No RSVPs yet...
+            </p>
+          </template>
+        </b-table>
       </div>
     </section>
   </div>
@@ -138,9 +204,23 @@ export default {
       } catch (e) {
         console.log(e);
       }
-      return { event, agenda, organizers, oldRecord };
-    } catch {
-      return { event };
+      let allRecords = [];
+      if ((store.state.account.authUser.OwnerGroups &&
+           store.state.account.authUser.OwnerGroups.includes(event.GroupId)) ||
+          (store.state.account.authUser.ManagerGroups &&
+           store.state.account.authUser.ManagerGroups.includes(event.GroupId))) {
+        allRecords = await app.$api.searchRecord(
+          event.Type, "", event.Id, "", "", new Date(0), new Date(0));
+        for (let j = 0; j < allRecords.length; j++) {
+          if (allRecords[j].UserId) {
+            allRecords[j].Username = await app.$api.getUser(allRecords[j].UserId).Username;
+          }
+        }
+      }
+      return { event, agenda, organizers, oldRecord, allRecords };
+    } catch (e) {
+      console.log(e);
+      return { event, agenda: "", organizers: [], oldRecord: [], allRecords: [] };
     }
   },
   data: () => ({
@@ -192,6 +272,27 @@ export default {
           return "";
         }
       }
+    },
+    rsvpData () {
+      const data = [];
+      for (let i = 0; i < this.allRecords.length; i++) {
+        let countStr = "";
+        if (this.event.Categorize) {
+          for (let j = 0; j < this.event.CategoryNames.length; j++) {
+            countStr += this.allRecords[i].Counts[j] + this.event.CategoryNames[j];
+          }
+        } else {
+          countStr = this.allRecords[i].Count;
+        }
+        data.push({
+          index: i,
+          username: this.allRecords[i].Username,
+          name: this.allRecords[i].Name,
+          note: this.allRecords[i].Note,
+          count: countStr
+        });
+      }
+      return data;
     },
     isEventOwner () {
       return this.isLoggedIn && (this.event.UserId === this.authUser.Id ||
@@ -250,6 +351,19 @@ export default {
             });
             this.$router.replace({ path: "/" }).then((_) => {
               this.$router.go();
+            });
+          });
+        }
+      });
+    },
+    doDeleteRsvp (id) {
+      this.$buefy.dialog.confirm({
+        message: this.$t("button.areyousure"),
+        onConfirm: () => {
+          this.$api.delRecord(this.event.Id, this.allRecords[id].Id).then(() => {
+            this.$buefy.toast.open({
+              message: "Deleted!",
+              type: "is-success"
             });
           });
         }

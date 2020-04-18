@@ -76,12 +76,12 @@
       <div class="columns is-multiline is-light">
         <div class="column is-8 is-offset-2 is-light">
           <form
-            action="https://formspree.io/email@example.com"
+            action="https://formspree.io/xrgawpol"
             method="POST"
           >
             <div class="field">
               <label> {{ $t('field.name') }} </label>
-              <b-input icon="account" name="Name" :placeholder="$t('ph.name')" />
+              <b-input icon="account" name="name" :placeholder="$t('ph.name')" />
             </div>
             <div class="field">
               <label> {{ $t('field.email') }} </label>
@@ -89,7 +89,7 @@
                 icon="email"
                 type="email"
                 :placeholder="$t('ph.email')"
-                name="Email"
+                name="_replyto"
               />
             </div>
             <div class="field">
@@ -97,10 +97,10 @@
               <b-input
                 type="textarea"
                 :placeholder="$t('ph.message')"
-                name="Message"
+                name="message"
               />
             </div>
-            <b-button class="is-block is-fullwidth" outlined>
+            <b-button type="submit" class="is-block is-fullwidth" outlined>
               {{ $t('button.submit') }}
             </b-button>
           </form>

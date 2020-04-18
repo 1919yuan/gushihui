@@ -147,7 +147,8 @@
     "all": "All Events",
     "organizer": "Organizer",
     "choose": "Choose how many?",
-    "count": "How many"
+    "count": "How many",
+    "manage": "Manage RSVPs"
   },
   "rsvp": {
     "success": "You've successfully registered!",

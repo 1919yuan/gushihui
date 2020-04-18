@@ -12,7 +12,7 @@
     <p v-for="(g, idx2) in groups" :key="'g' + idx2">
       <a :href="`/g/${g.Id}`">{{ g.Title }}</a>
     </p>
-    <h2 v-show="$route.params.id == $store.state.account.authUser.Id">
+    <h2 v-show="$route.params.id == $store.state.account.authUser.Username">
       {{ $t('profile.records') }}
     </h2>
     <p v-for="(r, idx3) in records" :key="'r' + idx3">

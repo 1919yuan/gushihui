@@ -147,7 +147,8 @@
     "all": "所有活动",
     "organizer": "组织者",
     "choose": "有多少人参加活动",
-    "count": "数量"
+    "count": "数量",
+    "manage": "管理报名"
   },
   "rsvp": {
     "success": "报名成功！",

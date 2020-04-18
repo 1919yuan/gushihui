@@ -8,7 +8,7 @@
       {{ $t('event.count') }}: {{ record.Count }}
     </p>
     <h3> {{ $t('field.note') }} </h3>
-    <p> {{ record.Comment }} </p>
+    <p> {{ record.Note }} </p>
     <b-notification v-if="isOwner">
       <b-field>
         <span class="button-aligned">
