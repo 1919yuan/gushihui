@@ -3,33 +3,7 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap')
 
-// Set your brand colors
-@import "~bulma/sass/utilities/functions"
-$blue: #37A5CF
-$blue-invert: findColorInvert($blue)
-$blue-light: findLightColor($blue)
-$blue-dark: findDarkColor($blue)
-$zoom: #2D8CFF
-$zoom-invert: findColorInvert($zoom)
-$zoom-light: findLightColor($zoom)
-$zoom-dark: findDarkColor($zoom)
-
-/* $purple: #8A4D76
-/* $pink: #b3254d
-/* $brown: #757763
-/* $beige-light: #D0D1CD
-/* $beige-lighter: #EFF0EB
-$zoom: #2D8CFF
-
-$primary: $blue
-$custom-colors: (blue: ($blue, $blue-invert, $blue-light, $blue-dark),
-zoom: ($zoom, $zoom-invert, $zoom-light, $zoom-dark))
-$family-sans-serif: "Noto", sans-serif
-
-@import "~bulma/sass/utilities/initial-variables"
-@import "~bulma/sass/utilities/derived-variables"
-
-$colors: map-merge($colors, $custom-colors)
+@import "variables.sass"
 
 // Update Bulma's global variables
 $widescreen-enabled: false

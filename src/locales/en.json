@@ -38,6 +38,7 @@
   "field": {
     "name": "Name",
     "email": "Email",
+    "message": "Message",
     "password": "Password",
     "password_confirm": "Confirm password",
     "username": "Username",
@@ -76,7 +77,9 @@
     "note": "Note"
   },
   "ph": {
+    "name": "Please enter your name",
     "email": "Please enter your email",
+    "message": "Please enter your message",
     "email_or_username": "Please enter your email or username",
     "a_email_or_username": "Please enter a registered email or username",
     "password": "Please enter your password",
@@ -181,6 +184,13 @@
   },
   "landing": {
     "title": "Welcome to Chinese Story Time!",
-    "subtitle": "Read Stories, Learn Chinese"
+    "subtitle": "Read Stories, Learn Chinese",
+    "about": "About Chinese Story Time",
+    "about_paragraph": "Welcome to the website of International Chinese Reading Association (ICRA)! ICRA is a registered 501-3(c) non-profit organization in the U.S. We organize online/face-to-face storytime events reading Chinese stories to young children. We also promote Chinese culture and donate Chinese books to local libraries. ICRA originated from Westwood, MA, and now has many chapters across U.S.",
+    "introduction": "On this site",
+    "introduction_organize": "You can create a storytime organization, and start organizing story time events.",
+    "introduction_register": "People can RSVP to the events, and there are flexible options for limiting the number of registrations.",
+    "introduction_manage": "As an organizer, you can manage people's RSVPs easily, or export the list of RSVPs to a spreadsheet.",
+    "contact": "Contact Us"
   }
 }

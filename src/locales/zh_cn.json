@@ -38,6 +38,7 @@
   "field": {
     "name": "名称",
     "email": "电子邮箱",
+    "message": "消息",
     "password": "密码",
     "password_confirm": "确认密码",
     "username": "用户名",
@@ -76,7 +77,9 @@
     "note": "备注"
   },
   "ph": {
+    "name": "请输入姓名",
     "email": "请输入电子邮箱",
+    "message": "请输入您想发送的信息",
     "email_or_username": "请输入电子邮箱或用户名",
     "a_email_or_username": "请输入一个已注册的电子邮箱或用户名",
     "password": "请输入密码",
@@ -181,6 +184,13 @@
   },
   "landing": {
     "title": "中文故事会",
-    "subtitle": "听故事，学中文"
+    "subtitle": "听故事，学中文",
+    "about": "关于中文故事会",
+    "about_paragraph": "欢迎来到华阅会网站！华阅会是在美国注册的501-3(c)非盈利组织。我们组织线上/线下故事会，传播中国文化，帮助更多在海外成长的小朋友学习中文。我们也和很多当地图书馆合作，捐赠中文图书。华阅会起源与美国麻州，现在在美国很多州发展故事会活动。",
+    "introduction": "关于本站",
+    "introduction_organize": "您可以创建故事会群组，开始组织故事会活动",
+    "introduction_register": "人们可以在网上提交活动注册信息，并且灵活管理他们的注册",
+    "introduction_manage": "作为组织者，您可以看到参与活动的人员列表，并把他们导出",
+    "contact": "联系我们"
   }
 }
