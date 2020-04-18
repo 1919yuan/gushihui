@@ -13,6 +13,20 @@
         </div>
       </div>
     </section>
+    <section class="hero section2">
+      <div class="container has-text-centered">
+        <h2 class="title is-3">
+          About
+        </h2>
+      </div>
+    </section>
+    <section class="hero section3">
+      <div class="container has-text-centered">
+        <h2 class="title is-3">
+          Contact
+        </h2>
+      </div>
+    </section>
     <Footer />
   </div>
 </template>
@@ -30,6 +44,15 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "~bulma/sass/utilities/_all";
 .section1
   background: url('~assets/banner.jpg') center / cover
+.section2
+  background: $light
+  padding: 5rem
+.section2 .title
+  text-transform: uppercase;
+.section3
+  background: $grey-lighter
+  padding: 5rem
 </style>
