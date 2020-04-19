@@ -51,7 +51,11 @@ export default {
       }
       await this.$api.createGroup(this.newgroup.group);
       const newAuthUser = _.cloneDeep(this.$store.state.account.authUser);
-      newAuthUser.OwnerGroups.push(this.newgroup.group.Id);
+      if (!newAuthUser.OwnerGroups) {
+        newAuthUser.OwnerGroups = [this.newgroup.group.Id];
+      } else {
+        newAuthUser.OwnerGroups.push(this.newgroup.group.Id);
+      }
       this.$store.commit("SET_AUTH_USER", newAuthUser);
       this.$router.push("/group/" + this.newgroup.group.Id);
     }
