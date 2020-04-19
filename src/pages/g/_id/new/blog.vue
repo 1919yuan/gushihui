@@ -56,8 +56,6 @@ export default {
       }
       const ownerGroups = this.$store.state.account.authUser.OwnerGroups;
       const managerGroups = this.$store.state.account.authUser.ManagerGroups;
-      console.log(ownerGroups);
-      console.log(managerGroups);
       return (ownerGroups && ownerGroups.includes(this.$route.params.id)) ||
              (managerGroups && managerGroups.includes(this.$route.params.id));
     }

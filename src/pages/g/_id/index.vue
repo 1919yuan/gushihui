@@ -47,8 +47,7 @@ export default {
       const group = await app.$api.getGroup(params.id);
       const blogs = await app.$api.searchBlog(params.id, "", "", new Date(0), new Date(0), false);
       return { events, groupName: group.Title, blogs };
-    } catch (e) {
-      console.log(e);
+    } catch {
       return { events: [], groupName: params.id, blogs: [] };
     }
   },

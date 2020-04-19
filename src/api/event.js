@@ -23,39 +23,34 @@ module.exports = function (Api) {
   };
   Api.prototype.searchEvent = async function (
     type, groupId, userId, begin, end) {
-    try {
-      let query = this.$fireStore.collection("Event");
-      if (type) {
-        query = query.where("Type", "==", type);
-      }
-      if (groupId) {
-        query = query.where("GroupId", "==", groupId);
-      }
-      if (userId) {
-        query = query.where("UserId", "==", userId);
-      }
-      if (end.getTime() !== 0) {
-        query = query.where("Options.StartAt", "<=", firebase.firestore.Timestamp.fromDate(end));
-      }
-      if (begin.getTime() !== 0) {
-        query = query.where("Options.StartAt", ">=", firebase.firestore.Timestamp.fromDate(begin));
-      }
-      const snapshot = await query.get();
-      const result = [];
-      snapshot.docs.forEach((doc) => {
-        const st = _.cloneDeep(doc.data());
-        st.Id = doc.id;
-        st.Options.StartAt = util.parseFirebaseTimestamp(st.Options.StartAt);
-        st.Options.RsvpOpen = util.parseFirebaseTimestamp(st.Options.RsvpOpen);
-        st.Options.RsvpClose = util.parseFirebaseTimestamp(st.Options.RsvpClose);
-        st.Created = util.parseFirebaseTimestamp(st.Created);
-        result.push(st);
-      });
-      return result;
-    } catch (e) {
-      console.log(e);
-      throw e;
+    let query = this.$fireStore.collection("Event");
+    if (type) {
+      query = query.where("Type", "==", type);
     }
+    if (groupId) {
+      query = query.where("GroupId", "==", groupId);
+    }
+    if (userId) {
+      query = query.where("UserId", "==", userId);
+    }
+    if (end.getTime() !== 0) {
+      query = query.where("Options.StartAt", "<=", firebase.firestore.Timestamp.fromDate(end));
+    }
+    if (begin.getTime() !== 0) {
+      query = query.where("Options.StartAt", ">=", firebase.firestore.Timestamp.fromDate(begin));
+    }
+    const snapshot = await query.get();
+    const result = [];
+    snapshot.docs.forEach((doc) => {
+      const st = _.cloneDeep(doc.data());
+      st.Id = doc.id;
+      st.Options.StartAt = util.parseFirebaseTimestamp(st.Options.StartAt);
+      st.Options.RsvpOpen = util.parseFirebaseTimestamp(st.Options.RsvpOpen);
+      st.Options.RsvpClose = util.parseFirebaseTimestamp(st.Options.RsvpClose);
+      st.Created = util.parseFirebaseTimestamp(st.Created);
+      result.push(st);
+    });
+    return result;
   };
   Api.prototype.delEvent = async function (eid) {
     const collection = this.$fireStore.collection("Event/" + eid + "/Record/");

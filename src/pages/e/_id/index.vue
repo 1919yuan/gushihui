@@ -201,8 +201,7 @@ export default {
         oldRecord = await app.$api.searchRecord(
           event.Type, store.state.account.authUser.Id,
           event.Id, "", "", new Date(0), new Date(0));
-      } catch (e) {
-        console.log(e);
+      } catch {
       }
       let allRecords = [];
       if ((store.state.account.authUser.OwnerGroups &&
@@ -218,8 +217,7 @@ export default {
         }
       }
       return { event, agenda, organizers, oldRecord, allRecords };
-    } catch (e) {
-      console.log(e);
+    } catch {
       return { event, agenda: "", organizers: [], oldRecord: [], allRecords: [] };
     }
   },
