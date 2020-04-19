@@ -33,7 +33,8 @@
     "newgroup": "新建一个群",
     "listgroup": "查看所有群组",
     "newstorytime": "组织故事会活动",
-    "liststorytime": "故事会活动列表"
+    "liststorytime": "故事会活动列表",
+    "blog": "文章"
   },
   "field": {
     "name": "名称",

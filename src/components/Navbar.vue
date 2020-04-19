@@ -23,6 +23,9 @@
           {{ $t('nav.newstorytime') }}
         </b-navbar-item>
       </b-navbar-dropdown>
+      <b-navbar-item tag="nuxt-link" to="/blog">
+        {{ $t('nav.blog') }}
+      </b-navbar-item>
       <!-- <b-navbar-dropdown :label="$t('nav.library')"> -->
       <!--   <b-navbar-item tag="nuxt-link" to="/library"> -->
       <!--     {{ $t('nav.listbook') }} -->

@@ -33,7 +33,8 @@
     "newgroup": "Create a new group",
     "listgroup": "View all groups",
     "newstorytime": "Create a storytime event",
-    "liststorytime": "Upcoming storytime events"
+    "liststorytime": "Upcoming storytime events",
+    "blog": "Blog"
   },
   "field": {
     "name": "Name",

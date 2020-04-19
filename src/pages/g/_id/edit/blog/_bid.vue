@@ -19,6 +19,11 @@
         </client-only>
       </div>
     </b-field>
+    <b-field :label="$t('blog.searchable')">
+      <b-switch v-model="newblog.Searchable">
+        {{ $t('blog.searchable') }}
+      </b-switch>
+    </b-field>
     <div class="buttons">
       <b-button
         tag="nuxt-link"
@@ -44,23 +49,27 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { kNullBlog, kNullGroup } from "~/schema";
 
 export default {
   middleware: "auth",
   layout: "article",
-  async asyncData ({ app, params }) {
+  async asyncData ({ app, params, router }) {
     try {
       const group = await app.$api.getGroup(params.id);
       const blogs = await app.$api.searchBlog(params.id, "", params.bid, new Date(0),
         new Date(0), true);
-      return { group, blog: blogs.length > 0 ? blogs[0] : kNullBlog };
+      return { group, blog: blogs.length > 0 ? blogs[0] : _.cloneDeep(kNullBlog) };
     } catch {
-      return { group: kNullGroup, blog: kNullBlog };
+      return { group: kNullGroup, blog: _.cloneDeep(kNullBlog) };
     }
   },
-  data: () => ({ newblog: kNullBlog }),
+  data: () => ({ newblog: _.cloneDeep(kNullBlog) }),
   computed: {
+    ...mapState({
+      authUser: state => state.account.authUser
+    }),
     isAuthorized () {
       if (!this.$store.getters["account/isLoggedIn"]) {
         return false;
@@ -71,6 +80,11 @@ export default {
     }
   },
   mounted () {
+    if (!this.blog.Id) {
+      this.$router.replace({ path: `/g/${this.$route.params.id}` }).then((_) => {
+        this.$router.go();
+      });
+    }
     this.newblog = _.cloneDeep(this.blog);
   },
   methods: {
@@ -83,8 +97,12 @@ export default {
         const d = new Date();
         this.newblog.Path = this.$util.formatLocalDate(d) + this.newblog.title.trim().replace(/\s/g, "_");
       }
+      this.newblog.EditorId = this.authUser.Id;
       await this.$api.setBlog(this.newblog, this.blog);
-      this.$buefy.toast.open({ message: "Article updated!", type: "is-success" });
+      this.$buefy.toast.open({
+        message: "Article updated!", type: "is-success"
+      });
+      this.blog = _.cloneDeep(this.newblog);
     },
     doDelete () {
       this.$buefy.dialog.confirm({
@@ -95,6 +113,7 @@ export default {
               message: "Deleted!",
               type: "is-success"
             });
+            this.blog = _.cloneDeep(kNullBlog);
             this.$router.replace({ path: `/g/${this.blog.GroupId}` }).then((_) => {
               this.$router.go();
             });

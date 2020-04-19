@@ -1,5 +1,5 @@
 <template>
-  <div class="column">
+  <div class="column is-12">
     <div class="card">
       <header class="card-header">
         <div class="media">
@@ -17,7 +17,7 @@
       </header>
       <div class="card-content">
         <p class="content has-text-centered">
-          {{ excerpt }}
+          {{ blog.Excerpt }}
         </p>
       </div>
       <footer class="card-footer">
@@ -37,11 +37,6 @@ export default {
     blog: {
       type: Object,
       required: true
-    }
-  },
-  computed: {
-    excerpt () {
-      return this.blog.Content.slice(0, 300);
     }
   },
   methods: {

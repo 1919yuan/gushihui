@@ -48,7 +48,7 @@ export default {
       return { group: kNullGroup };
     }
   },
-  data: () => ({ blog: kNullBlog }),
+  data: () => ({ blog: _.cloneDeep(kNullBlog) }),
   computed: {
     isAuthorized () {
       if (!this.$store.getters["account/isLoggedIn"]) {
@@ -63,11 +63,15 @@ export default {
   mounted () {
     this.blog.Author = this.group.Title;
     this.blog.GroupId = this.group.Id;
+    this.blog.EditorId = this.$store.state.account.authUser.Id;
   },
   methods: {
     async doSubmit () {
       if (!this.blog.Title || !this.blog.Content) {
-        this.$buefy.toast.open({ message: "Please input valid markdown content in your post." });
+        this.$buefy.toast.open({
+          message: "Please input valid markdown content in your post.",
+          type: "is-warning"
+        });
         return;
       }
       if (!this.blog.Path) {
@@ -75,7 +79,10 @@ export default {
         this.blog.Path = this.$util.formatLocalDate(d) + "-" + this.blog.Title.trim().replace(/\s/g, "_");
       }
       await this.$api.addBlog(this.blog);
-      this.$router.push({ path: `/g/${this.blog.GroupId}/blog/${this.blog.Path}` });
+      this.$router.push({
+        path: `/g/${this.blog.GroupId}/blog/${this.blog.Path}`
+      });
+      this.blog = _.cloneDeep(kNullBlog);
     }
   }
 };

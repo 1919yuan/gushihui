@@ -193,6 +193,15 @@ class Util {
     }
     return "";
   }
+
+  getExcerpt (html) {
+    const cheerio = require("cheerio");
+    const cheerioStatic = cheerio.load(html || "");
+    return cheerioStatic("html *").contents().toArray()
+      .map(element => element.type === "text" ? cheerioStatic(element).text().trim() : null)
+      .filter(text => text)
+      .join(" ").slice(0, 400) + "...";
+  }
 }
 
 export const util = new Util();

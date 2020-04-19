@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div class="content" v-html="html" />
+    <div class="content">
+      <p class="title">
+        {{ blog.Title }}
+      </p>
+      <p class="subtitle">
+        {{ blog.Author }} &nbsp; {{ $util.formatLocalDate(blog.Updated) }}
+      </p>
+      <div v-html="html" />
+    </div>
     <div v-show="isOwner" class="block">
       <b-button
         tag="nuxt-link"

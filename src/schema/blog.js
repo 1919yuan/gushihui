@@ -1,5 +1,5 @@
 export const kNullBlog = {
-  Id: "",
+  EditorId: "",
   GroupId: "",
   UserId: "",
   Title: "",
@@ -7,5 +7,6 @@ export const kNullBlog = {
   Author: "",
   Path: "",
   Searchable: true,
-  ThumbnailUrl: ""
+  ThumbnailUrl: "",
+  Excerpt: ""
 };

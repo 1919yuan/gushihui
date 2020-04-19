@@ -17,35 +17,40 @@ module.exports = function (Api) {
   };
   Api.prototype.searchBlog = async function (
     groupId, userId, path, begin, end, includeHidden) {
-    let query = this.$fireStore.collection("Blog");
-    if (userId) {
-      query = query.where("UserId", "==", userId);
+    try {
+      let query = this.$fireStore.collection("Blog");
+      if (userId) {
+        query = query.where("UserId", "==", userId);
+      }
+      if (groupId) {
+        query = query.where("GroupId", "==", groupId);
+      }
+      if (path) {
+        query = query.where("Path", "==", path);
+      }
+      if (begin.getTime() !== 0) {
+        query = query.where("Created", ">=", firebase.firestore.Timestamp.fromDate(begin));
+      }
+      if (end.getTime() !== 0) {
+        query = query.where("Created", "<=", firebase.firestore.Timestamp.fromDate(end));
+      }
+      if (!includeHidden) {
+        query = query.where("Searchable", "==", true);
+      }
+      query = query.orderBy("Created", "desc");
+      const snapshot = await query.get();
+      const result = [];
+      snapshot.docs.forEach((doc) => {
+        const rec = _.cloneDeep(doc.data());
+        rec.Id = doc.id;
+        rec.Created = util.parseFirebaseTimestamp(rec.Created);
+        rec.Updated = util.parseFirebaseTimestamp(rec.Updated);
+        result.push(rec);
+      });
+      return result;
+    } catch (e) {
+      console.log(e);
     }
-    if (groupId) {
-      query = query.where("GroupId", "==", groupId);
-    }
-    if (path) {
-      query = query.where("Path", "==", path);
-    }
-    if (begin.getTime() !== 0) {
-      query = query.where("Created", ">=", firebase.firestore.Timestamp.fromDate(begin));
-    }
-    if (end.getTime() !== 0) {
-      query = query.where("Created", "<=", firebase.firestore.Timestamp.fromDate(end));
-    }
-    if (!includeHidden) {
-      query = query.where("Searchable", "==", true);
-    }
-    const snapshot = await query.get();
-    const result = [];
-    snapshot.docs.forEach((doc) => {
-      const rec = _.cloneDeep(doc.data());
-      rec.Id = doc.id;
-      rec.Created = util.parseFirebaseTimestamp(rec.Created);
-      rec.Updated = util.parseFirebaseTimestamp(rec.Updated);
-      result.push(rec);
-    });
-    return result;
   };
   Api.prototype.addBlog = async function (blog) {
     const existingBlogs = await this.searchBlog(
@@ -55,6 +60,8 @@ module.exports = function (Api) {
     }
     blog.Created = this.now();
     blog.Updated = blog.Created;
+    const md = require("markdown-it")();
+    blog.Excerpt = util.getExcerpt(md.render(blog.Content));
     await this.$fireStore.collection("Blog").add(blog);
   };
   Api.prototype.setBlog = async function (blog, oldBlog) {
@@ -66,6 +73,8 @@ module.exports = function (Api) {
       }
     }
     blog.Updated = this.now();
+    const md = require("markdown-it")();
+    blog.Excerpt = util.getExcerpt(md.render(blog.Content));
     await this.$fireStore.doc("Blog/" + blog.Id).set(blog);
   };
   Api.prototype.delBlog = async function (id) {

@@ -1,29 +1,25 @@
 <template>
   <div class="content">
-    <div class="level">
-      <div class="level-left">
-        <h2> {{ $t('group.events', { id: groupName }) }} </h2>
-      </div>
-      <div v-if="isOwner" class="level-right buttons">
-        <b-button tag="nuxt-link" :to="'/new/storytime?groupId='+groupId" type="is-link">
-          <b-icon icon="plus" />
-        </b-button>
-      </div>
+    <h2> {{ $t('group.events', { id: groupName }) }} </h2>
+    <div v-if="isOwner" class="block buttons">
+      <b-button
+        tag="nuxt-link"
+        :to="'/new/storytime?groupId='+groupId"
+        type="is-link"
+      >
+        {{ $t('nav.newstorytime') }}
+      </b-button>
     </div>
     <div class="columns is-mobile">
       <EventCard v-for="(event, idx) in events" :key="'e'+idx" :event="event" />
     </div>
-    <div class="level">
-      <div class="level-left">
-        <h2> {{ $t('group.blogs', { id: groupName }) }} </h2>
-      </div>
-      <div v-if="isOwner" class="level-right buttons">
-        <b-button tag="nuxt-link" :to="'/g/'+groupId+'/new/blog'" type="is-link">
-          <b-icon icon="plus" />
-        </b-button>
-      </div>
+    <h2> {{ $t('group.blogs', { id: groupName }) }} </h2>
+    <div v-if="isOwner" class="block buttons">
+      <b-button tag="nuxt-link" :to="'/g/'+groupId+'/new/blog'" type="is-link">
+        {{ $t('button.add') }}
+      </b-button>
     </div>
-    <div class="columns is-mobile">
+    <div class="columns is-mobile is-multiline">
       <BlogCard v-for="(blog, idx) in blogs" :key="'b'+idx" :blog="blog" />
     </div>
   </div>
