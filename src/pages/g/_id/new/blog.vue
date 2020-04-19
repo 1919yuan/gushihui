@@ -65,16 +65,17 @@ export default {
     this.blog.GroupId = this.group.Id;
   },
   methods: {
-    doSubmit () {
+    async doSubmit () {
       if (!this.blog.Title || !this.blog.Content) {
         this.$buefy.toast.open({ message: "Please input valid markdown content in your post." });
         return;
       }
       if (!this.blog.Path) {
         const d = new Date();
-        this.blog.Path = this.$util.formatLocalDate(d) + this.blog.title.trim().replace(/\s/g, "_");
+        this.blog.Path = this.$util.formatLocalDate(d) + "-" + this.blog.Title.trim().replace(/\s/g, "_");
       }
-      this.$api.addBlog(this.blog);
+      await this.$api.addBlog(this.blog);
+      this.$router.push({ path: `/g/${this.blog.GroupId}/blog/${this.blog.Path}` });
     }
   }
 };

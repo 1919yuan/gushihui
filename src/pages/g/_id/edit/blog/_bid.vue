@@ -19,13 +19,27 @@
         </client-only>
       </div>
     </b-field>
-    <b-button
-      class="is-block is-fullwidth"
-      type="is-primary"
-      @click="doSubmit"
-    >
-      {{ $t('button.update') }}
-    </b-button>
+    <div class="buttons">
+      <b-button
+        tag="nuxt-link"
+        :to="`/g/${newblog.GroupId}/blog/${newblog.Path}`"
+        type="is-link"
+      >
+        {{ $t('button.view') }}
+      </b-button>
+      <b-button
+        type="is-primary"
+        @click="doUpdate"
+      >
+        {{ $t('button.update') }}
+      </b-button>
+      <b-button
+        type="is-danger"
+        @click="doDelete"
+      >
+        {{ $t('button.delete') }}
+      </b-button>
+    </div>
   </div>
 </template>
 
@@ -60,7 +74,7 @@ export default {
     this.newblog = _.cloneDeep(this.blog);
   },
   methods: {
-    async doSubmit () {
+    async doUpdate () {
       if (!this.newblog.Title || !this.newblog.Content) {
         this.$buefy.toast.open({ message: "Please input valid markdown content in your post." });
         return;
@@ -71,6 +85,22 @@ export default {
       }
       await this.$api.setBlog(this.newblog, this.blog);
       this.$buefy.toast.open({ message: "Article updated!", type: "is-success" });
+    },
+    doDelete () {
+      this.$buefy.dialog.confirm({
+        message: this.$t("button.areyousure"),
+        onConfirm: () => {
+          this.$api.delBlog(this.blog.Id).then(() => {
+            this.$buefy.toast.open({
+              message: "Deleted!",
+              type: "is-success"
+            });
+            this.$router.replace({ path: `/g/${this.blog.GroupId}` }).then((_) => {
+              this.$router.go();
+            });
+          });
+        }
+      });
     }
   }
 };
