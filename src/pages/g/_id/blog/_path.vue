@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content" v-html="blog.Content" />
+    <div class="content" v-html="html" />
     <div v-show="isOwner" class="block">
       <b-button
         tag="nuxt-link"
@@ -17,14 +17,16 @@
 
 <script>
 import { kNullBlog } from "~/schema";
+const md = require("markdown-it")();
 export default {
   layout: "article",
   async asyncData ({ app, params }) {
-    const blogs = await app.$api.searchBlog(params.id, "", params.path, new Date(0), new Date(0));
+    const blogs = await app.$api.searchBlog(params.id, "", params.path, new Date(0), new Date(0), true);
     if (blogs.length > 0) {
-      return { blog: blogs[0] };
+      const html = md.render(blogs[0].Content);
+      return { blog: blogs[0], html };
     } else {
-      return { blog: kNullBlog };
+      return { blog: kNullBlog, html: "" };
     }
   },
   computed: {

@@ -1,17 +1,18 @@
 <template>
-  <div class="content" v-html="blog.Content" />
+  <div class="content" v-html="html" />
 </template>
 
 <script>
-import { kNullBlog } from "~/schema";
+const md = require("markdown-it")();
 export default {
   layout: "article",
   async asyncData ({ app }) {
-    const blogs = await app.$api.searchBlog("icra", "", "terms", new Date(0), new Date(0));
+    const blogs = await app.$api.searchBlog("icra", "", "terms", new Date(0), new Date(0), true);
     if (blogs.length > 0) {
-      return { blog: blogs[0] };
+      const html = md.render(blogs[0].Content);
+      return { html };
     } else {
-      return { blog: kNullBlog };
+      return { html: "" };
     }
   }
 };
