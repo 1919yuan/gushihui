@@ -62,9 +62,12 @@
             <b-button
               type="is-primary"
               outlined
-              icon-left="google"
               @click="doLoginWithGoogle"
             >
+              <img
+                src="~/assets/google.svg"
+                style="width: 16px; height: 16px; vertical-align: middle"
+              >
               {{ $t('account.login_with_google') }}
             </b-button>
           </div>
@@ -72,9 +75,12 @@
             <b-button
               type="is-primary"
               outlined
-              icon-left="facebook"
               @click="doLoginWithFacebook"
             >
+              <img
+                src="~/assets/facebook.svg"
+                style="width: 16px; height: 16px; vertical-align: middle"
+              >
               {{ $t('account.login_with_fb') }}
             </b-button>
           </div>
