@@ -64,11 +64,10 @@
               outlined
               @click="doLoginWithGoogle"
             >
-              <img
-                src="~/assets/google.svg"
-                style="width: 16px; height: 16px; vertical-align: middle"
-              >
-              {{ $t('account.login_with_google') }}
+              <span class="google">
+                <img src="~/assets/google.svg">
+                {{ $t('account.login_with_google') }}
+              </span>
             </b-button>
           </div>
           <div class="column is-6">
@@ -77,11 +76,10 @@
               outlined
               @click="doLoginWithFacebook"
             >
-              <img
-                src="~/assets/facebook.svg"
-                style="width: 16px; height: 16px; vertical-align: middle"
-              >
-              {{ $t('account.login_with_fb') }}
+              <span class="facebook">
+                <img src="~/assets/facebook.svg">
+                {{ $t('account.login_with_fb') }}
+              </span>
             </b-button>
           </div>
         </div>
@@ -204,3 +202,17 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="sass">
+.google, .facebook
+  img
+    width: 16px
+    height: 16px
+    vertical-align: middle
+
+.google
+  font-family: Roboto, sans-serif
+
+.facebook
+  font-family: Helvetica, Arial, sans-serif
+</style>

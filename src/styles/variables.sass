@@ -1,5 +1,7 @@
 // Set your brand colors
 @import "~bulma/sass/utilities/functions"
+@import "~bulma/sass/utilities/initial-variables"
+
 $blue: #37A5CF
 $blue-invert: findColorInvert($blue)
 $blue-light: findLightColor($blue)
@@ -23,9 +25,8 @@ $zoom: #2D8CFF
 $primary: $blue
 $custom-colors: (blue: ($blue, $blue-invert, $blue-light, $blue-dark),
 zoom: ($zoom, $zoom-invert, $zoom-light, $zoom-dark))
-$family-sans-serif: "Noto", sans-serif
+$family-sans-serif: Noto Sans, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 
-@import "~bulma/sass/utilities/initial-variables"
 @import "~bulma/sass/utilities/derived-variables"
 
 $colors: map-merge($colors, $custom-colors)
