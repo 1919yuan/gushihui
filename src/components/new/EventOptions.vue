@@ -13,32 +13,15 @@
           @input="emit"
         />
       </b-field>
-      <b-field :label="$t('event.rsvp_open')">
-        <b-datetimepicker
-          v-model="rsvpOpen"
-          :placeholder="$t('ph.select_time')"
-          icon="calendar-today"
-          :timepicker="timepicker"
-          :min-datetime="minTime"
-          :max-datetime="maxTime"
-          @input="emit"
-        />
-      </b-field>
-      <b-field :label="$t('event.rsvp_close')">
-        <b-datetimepicker
-          v-model="rsvpClose"
-          :placeholder="$t('ph.select_time')"
-          icon="calendar-today"
-          :timepicker="timepicker"
-          :min-datetime="minTime"
-          :max-datetime="maxTime"
-          @input="emit"
-        />
-      </b-field>
       <b-field :label="$t('field.duration')">
         <b-numberinput v-model="duration" step="30" @input="emit" />
       </b-field>
       <b-field grouped group-multiline>
+        <p class="control">
+          <b-switch v-model="storytime.Options.RequireRsvp" @input="emit">
+            {{ $t('event.require_rsvp') }}
+          </b-switch>
+        </p>
         <p class="control">
           <b-switch v-model="storytime.Options.IsTotalCountLimited" @input="emit">
             {{ $t('event.limit_total') }}
@@ -70,9 +53,31 @@
           </b-button>
         </p>
       </b-field>
+      <b-field v-show="storytime.Options.RequireRsvp" :label="$t('event.rsvp_open')">
+        <b-datetimepicker
+          v-model="rsvpOpen"
+          :placeholder="$t('ph.select_time')"
+          icon="calendar-today"
+          :timepicker="timepicker"
+          :min-datetime="minTime"
+          :max-datetime="maxTime"
+          @input="emit"
+        />
+      </b-field>
+      <b-field v-show="storytime.Options.RequireRsvp" :label="$t('event.rsvp_close')">
+        <b-datetimepicker
+          v-model="rsvpClose"
+          :placeholder="$t('ph.select_time')"
+          icon="calendar-today"
+          :timepicker="timepicker"
+          :min-datetime="minTime"
+          :max-datetime="maxTime"
+          @input="emit"
+        />
+      </b-field>
       <b-field
         v-for="(cat, idx) in storytime.Options.CategoryNames"
-        v-show="storytime.Options.Categorize"
+        v-show="storytime.Options.Categorize && storytime.Options.RequireRsvp"
         :key="idx"
         grouped
       >
@@ -95,7 +100,7 @@
         Your venue capacities are: {{ venueCapacities }}
       </b-notification>
       <b-field
-        v-show="storytime.Options.IsTotalCountLimited"
+        v-show="storytime.Options.IsTotalCountLimited && storytime.Options.RequireRsvp"
         :label="$t('event.total_limit')"
       >
         <b-numberinput

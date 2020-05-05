@@ -138,6 +138,7 @@
     "limit_total": "限制总报名人数",
     "categorize": "分类报名",
     "limit_per_cat": "每类报名人数分别设限",
+    "require_rsvp": "活动需要报名",
     "require_login": "要求登录才能报名",
     "addcat": "添加分类",
     "subcat": "删除分类",
@@ -186,7 +187,7 @@
   "zoom": {
     "id": "会议ID",
     "id_regex": "会议 ID 至少为9位数字，不含短横杠",
-    "password_ph": "会议密码，现在为必须设置"
+    "password_ph": "会议密码"
   },
   "landing": {
     "title": "中文故事会",

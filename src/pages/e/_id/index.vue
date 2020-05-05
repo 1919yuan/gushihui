@@ -237,7 +237,8 @@ export default {
         return this.$t("rsvp.already_done");
       }
       const now = new Date();
-      if (this.event.Options.RsvpOpen === this.event.Options.RsvpClose) {
+      if (this.event.Options.RsvpOpen === this.event.Options.RsvpClose ||
+          !this.event.Options.RequireRsvp) {
         return this.$t("rsvp.unnecessary");
       } else if (now < this.event.Options.RsvpOpen) {
         return this.$t("rsvp.not_opened", { time: this.$util.formatLocalTime(this.event.Options.RsvpOpen) });

@@ -25,7 +25,7 @@
         tag="div"
         class="field"
         :name="$t('field.password')"
-        rules="required|max:16"
+        rules="max:16"
       >
         <b-field
           :type="{ 'is-danger': !valid && obj.MeetingId }"

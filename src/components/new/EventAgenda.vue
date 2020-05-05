@@ -7,7 +7,7 @@
       </b-field>
       <div class="mavonEditor">
         <client-only>
-          <mavon-editor v-model="storytime.Agenda" @save="emit" />
+          <mavon-editor v-model="storytime.Agenda" @change="emit" />
         </client-only>
       </div>
     </div>

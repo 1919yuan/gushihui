@@ -5,7 +5,7 @@
   "author": "Lin Yuan",
   "private": true,
   "scripts": {
-    "dev": "nuxt --port 8080",
+    "dev": "nuxt --hostname 0.0.0.0 --port 8080",
     "build": "nuxt build && rm -rf functions/.nuxt && mv .nuxt functions",
     "ssr": "firebase serve",
     "preparedev": "cp -f firebase_dev_key.json functions/ && cp -f .env.development .env && cp -f functions/.runtimeconfig_dev.json functions/.runtimeconfig.json",

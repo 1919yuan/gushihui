@@ -138,6 +138,7 @@
     "limit_total": "Limit Total Rsvps",
     "categorize": "Categorize Rsvps",
     "limit_per_cat": "Limit Rsvps Per Category",
+    "require_rsvp": "Event needs RSVP",
     "require_login": "Require Login to RSVP",
     "addcat": "Add Category",
     "subcat": "Remove Category",
@@ -186,7 +187,7 @@
   "zoom": {
     "id": "Meeting ID",
     "id_regex": "Zoom Meeting ID is at least 9 digits, ignoring hyphen.",
-    "password_ph": "Password, required now"
+    "password_ph": "Password, recommended"
   },
   "landing": {
     "title": "Welcome to Chinese Story Time!",

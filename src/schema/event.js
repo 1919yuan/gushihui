@@ -1,5 +1,4 @@
 export const kNullOptions = {
-  Name: "",
   Categorize: false,
   CategoryNames: [],
   IsFree: true,
@@ -15,7 +14,8 @@ export const kNullOptions = {
   RsvpClose: new Date(0),
   StartAt: new Date(0),
   Duration: 30,
-  RequireLogin: true
+  RequireLogin: true,
+  RequireRsvp: true
 };
 
 export const kNullStats = {
