@@ -25,7 +25,7 @@
     "firebase-admin": "^8.10.0",
     "firebase-functions": "^3.6.0",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "markdown-it": "^10.0.0",
     "mavon-editor": "^2.8.3",
     "node-sass": "^4.13.1",
